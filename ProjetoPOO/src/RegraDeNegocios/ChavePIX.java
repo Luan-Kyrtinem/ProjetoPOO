@@ -1,6 +1,6 @@
 package RegraDeNegocios;
 import java.util.Random;
-public abstract class ChavePIX implements MetodosPIX {
+public class ChavePIX implements MetodosPIX {
     private String email = "";
     private String codAleatorio = "";
     private String numeroTelefone = "";

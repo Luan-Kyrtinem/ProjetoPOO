@@ -2,11 +2,20 @@ package RegraDeNegocios;
 public class Conta implements MetodosConta {
     private String tipoDeConta;
     private int numeroDaConta = 1;
-    private float saldodaConta = 100;
+    private float saldodaConta = 0;
     private Banco bancoDaConta;
     private Agencia agenciaDaConta;
     private boolean contaAberta = false;
     private ChavePIX chavePIX;
+    private String chaveAle;
+
+    public String getChaveAle() {
+        return chaveAle;
+    }
+
+    public void setChaveAle(String chaveAle) {
+        this.chaveAle = chaveAle;
+    }
 
     public String getTipoDeConta() {
         return tipoDeConta;
@@ -32,8 +41,18 @@ public class Conta implements MetodosConta {
         this.saldodaConta = saldodaConta;
     }
 
-    public Banco getBancoDaConta() {
-        return bancoDaConta;
+    public Banco getBancoDaConta(String nome) {
+        if ("itau".equals(nome)) {
+            return bancoDaConta.itau;
+        } else if ("caixa".equals(nome)) {
+            return bancoDaConta.caixa;
+        } else if ("banese".equals(nome)) {
+            return bancoDaConta.banese;
+        } else if ("bancodobrasil".equals(nome.replace(" ", ""))) {
+            return bancoDaConta.bancodobrasil;
+        } else {
+            return null;
+        }
     }
 
     public void setBancoDaConta(Banco bancoDaConta) {
@@ -55,29 +74,7 @@ public class Conta implements MetodosConta {
     public void setContaAberta(boolean contaAberta) {
         this.contaAberta = contaAberta;
     }
-
-    public ChavePIX getChavePIX() {
-        return chavePIX;
-    }
-
-    public void setChavePIX(ChavePIX chavePIX) {
-        this.chavePIX = chavePIX;
-    }
     
-    
-    
-    @Override
-    public void abrirConta(Cliente c, Banco b, Agencia a, float s) {
-        if (this.contaAberta == false) {
-            this.contaAberta = true;
-            c.setnConta(this.numeroDaConta);
-            this.numeroDaConta += 1;
-            chavePIX.criarChaveC();
-            this.bancoDaConta = b;
-            this.agenciaDaConta = a;
-            this.saldodaConta +=s;
-        }
-    }
     @Override
     public void fecharConta(Cliente c, Banco b, Agencia a) {
         if (this.contaAberta == true) {
@@ -94,7 +91,7 @@ public class Conta implements MetodosConta {
     @Override
     public void fazerSaque(Cliente c, Banco b, Agencia a, float v) {
         //c.getContaDoCliente().setSaldodaConta(saldodaConta - v);
-        System.out.println(this.getSaldodaConta());
+        System.out.println(this.getSaldodaConta() - v);
     }
     @Override
     public void fazerDeposito(Cliente c, Banco b, Agencia a, float v) {
@@ -104,6 +101,20 @@ public class Conta implements MetodosConta {
     }
     @Override
     public void fazerTransTED(Cliente c, Banco b, Agencia a, Cliente c2, Banco b2, Agencia a2, float v) {
+    }
+
+    public Conta(Cliente c, String bancoDaConta, Agencia agenciaDaConta, float s) {
+        if (this.contaAberta == false) {
+            this.contaAberta = true;
+            c.setnConta(this.numeroDaConta);
+            this.numeroDaConta += 1;
+            CodAleatorio chavePIX = new CodAleatorio();
+            chavePIX.criarChaveC();
+            this.chaveAle = chavePIX.getCodAleatorio();
+            this.bancoDaConta = this.getBancoDaConta(bancoDaConta);
+            this.agenciaDaConta = agenciaDaConta;
+            this.saldodaConta +=s;
+        }
     }
     
 }

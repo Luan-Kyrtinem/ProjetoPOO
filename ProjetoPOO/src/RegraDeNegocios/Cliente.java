@@ -7,7 +7,7 @@ public class Cliente {
     private Agencia agenciaDoBanco;
     private String emailCliente;
     private String numeroDoTelefone;
-    private Conta contaDoCliente;
+    public Conta contaDoCliente;
     private int nConta; 
 
     public Conta getContaDoCliente() {

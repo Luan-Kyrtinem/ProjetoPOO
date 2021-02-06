@@ -1,6 +1,5 @@
 package RegraDeNegocios;
 public interface MetodosConta {
-    public abstract void abrirConta(Cliente c, Banco b, Agencia a, float s);
     public abstract void fecharConta(Cliente c, Banco b, Agencia a);
     public abstract void fazerSaque(Cliente c, Banco b, Agencia a, float v);
     public abstract void fazerDeposito(Cliente c, Banco b, Agencia a, float v);
