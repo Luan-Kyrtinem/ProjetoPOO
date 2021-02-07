@@ -10,6 +10,7 @@ public class Cliente {
     public Conta contaDoCliente;
     private int nConta; 
 
+
     public Conta getContaDoCliente() {
         return contaDoCliente;
     }
@@ -83,7 +84,7 @@ public class Cliente {
     }
     
 
-    public Cliente(String nomeCliente, int idadeCliente, String cpf, String tipoDeConta, String emailCliente, String numeroDoTelefone) {
+    public Cliente(String nomeCliente, int idadeCliente, String cpf, String emailCliente, String numeroDoTelefone) {
         this.nomeCliente = nomeCliente;
         this.idadeCliente = idadeCliente;
         this.cpf = cpf;

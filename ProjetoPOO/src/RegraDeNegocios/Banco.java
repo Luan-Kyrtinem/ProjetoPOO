@@ -34,10 +34,4 @@ public class Banco {
         this.saldoBanco = saldoBanco;
     }
     
-    
-    
-    Banco itau = new Banco("itau", 1, 100000);
-    Banco caixa = new Banco("caixa", 2, 75000);
-    Banco banese = new Banco("banese", 3, 83000);
-    Banco bancodobrasil = new Banco("bancodobrasil", 4, 45000);
 }

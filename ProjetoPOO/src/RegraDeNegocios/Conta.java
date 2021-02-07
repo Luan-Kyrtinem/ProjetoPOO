@@ -43,16 +43,17 @@ public class Conta implements MetodosConta {
 
     public Banco getBancoDaConta(String nome) {
         if ("itau".equals(nome)) {
-            return bancoDaConta.itau;
+            ///return bancoDaConta.itau;
         } else if ("caixa".equals(nome)) {
-            return bancoDaConta.caixa;
+            //return bancoDaConta.caixa;
         } else if ("banese".equals(nome)) {
-            return bancoDaConta.banese;
+            //return bancoDaConta.banese;
         } else if ("bancodobrasil".equals(nome.replace(" ", ""))) {
-            return bancoDaConta.bancodobrasil;
+            //return bancoDaConta.bancodobrasil;
         } else {
-            return null;
+            //return null;
         }
+        return null;
     }
 
     public void setBancoDaConta(Banco bancoDaConta) {

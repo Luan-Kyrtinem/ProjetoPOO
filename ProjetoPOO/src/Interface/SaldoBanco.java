@@ -5,12 +5,19 @@
  */
 package Interface;
 
+import RegraDeNegocios.Banco;
+
 /**
  *
  * @author luan-
  */
 public class SaldoBanco extends javax.swing.JInternalFrame {
 
+    Banco itau = new Banco("itau", 1, 100000);
+    Banco caixa = new Banco("caixa", 2, 75000);
+    Banco banese = new Banco("banese", 3, 83000);
+    Banco bradesco = new Banco("bradesco", 4, 172151);
+    Banco bancodobrasil = new Banco("bancodobrasil", 5, 45000);
     /**
      * Creates new form SaldoBanco
      */
@@ -67,6 +74,12 @@ public class SaldoBanco extends javax.swing.JInternalFrame {
         lblResposta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblResposta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        txtNBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNBancoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,14 +119,30 @@ public class SaldoBanco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosing
 
     private void btnSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaldoActionPerformed
-        /**
-         *if (o nome do banco for inexistente)
-         */
-        lblResposta.setText("Esse Banco não existe!!!");
-        //else
-        txtNBanco.setText("");
-        lblResposta.setText("Saldo do Banco b é de...");//metodo que verifica o saldo de todas as agencias do banco especificado e soma
+        if (itau.getNomeBanco().equals(txtNBanco.getText())) {
+            lblResposta.setText("Saldo: R$" + Integer.toString((int) itau.getSaldoBanco()));
+            txtNBanco.setText("");
+        } else if (caixa.getNomeBanco().equals(txtNBanco.getText())) {
+            lblResposta.setText("Saldo: R$" + Integer.toString((int) caixa.getSaldoBanco()));
+            txtNBanco.setText("");
+        } else if (banese.getNomeBanco().equals(txtNBanco.getText())) {
+            lblResposta.setText("Saldo: R$" + Integer.toString((int) banese.getSaldoBanco()));
+            txtNBanco.setText("");
+        } else if (bradesco.getNomeBanco().equals(txtNBanco.getText())) {
+            lblResposta.setText("Saldo: R$" + Integer.toString((int) bradesco.getSaldoBanco()));
+            txtNBanco.setText("");
+        } else if (bancodobrasil.getNomeBanco().equals(txtNBanco.getText().replace(" ", ""))) {
+            lblResposta.setText("Saldo: R$" + Integer.toString((int) bancodobrasil.getSaldoBanco()));
+            txtNBanco.setText("");
+        } else {
+            lblResposta.setText("Banco não existe!");
+        }
+        
     }//GEN-LAST:event_btnSaldoActionPerformed
+
+    private void txtNBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNBancoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,6 +5,8 @@
  */
 package Interface;
 
+import RegraDeNegocios.Cliente;
+
 /**
  *
  * @author luan-
@@ -216,6 +218,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
 
     private void btnCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarContaActionPerformed
         /**
+         *Cliente c = new Cliente(txtNome.getText(), Integer.parseInt(txtIdade.getText()), txtCPF.getText(), txtEmail.getText(), txtNumTel.getText());
          *if (cliente não existir) 
          *Dados serão colocados no banco de dados
          *Será gerado automaticamente um numero da conta, e um codigo aleatorio para realizaçao do PIX, com exceçao de CS
@@ -232,7 +235,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
         txtNumTel.setText("");
         txtEmail.setText("");
         //else 
-        lblResposta.setText("Cliente já possui cadastro!!!");
+        //lblResposta.setText("Cliente já possui cadastro!!!");
     }//GEN-LAST:event_btnCriarContaActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
